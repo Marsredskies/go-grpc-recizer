@@ -3,7 +3,7 @@ module github.com/marsredskies/go-grpc-resizer
 go 1.16
 
 require (
-	//github.com/marsredskies/go-grpc-resizer/proto v0.0.0-20210505154831-83229fc31010
+	github.com/marsredskies/go-grpc-resizer
 	golang.org/x/net v0.0.0-20210505024714-0287a6fb4125 // indirect
 	golang.org/x/sys v0.0.0-20210503173754-0981d6026fa6 // indirect
 	google.golang.org/genproto v0.0.0-20210505142820-a42aa055cf76 // indirect

@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"github.com/marsredskies/go-grpc-resizer"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
 	"net"
@@ -24,11 +25,11 @@ func main() {
 
 type server struct{}
 
-func (s *server) Do(c context.Context, request *pb.Request) (response *greeting.Response, err error) {
-	greeting := fmt.Sprintf("Hello, %v", request.Message)
+func (s *server) Do(c context.Context, request *greeting.Request) (response *greeting.Response, err error) {
+	greet := fmt.Sprintf("Hello, %v", request.Message)
 
 	response = &greeting.Response{
-		Message: greeting,
+		Message: greet,
 	}
 
 	return response, nil

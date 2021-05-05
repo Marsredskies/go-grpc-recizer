@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"fmt"
+	"github.com/marsredskies/go-grpc-resizer/"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
 	"os"
