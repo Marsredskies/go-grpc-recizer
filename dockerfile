@@ -1,8 +1,8 @@
 FROM golang:1.16
 
-ADD . /go/src/github.com/marsredskies/go-grpc-resizer/server
+ADD . https://github.com/marsredskies/go-grpc-resizer/
 
-RUN go install /go/src/github.com/marsredskies/go-grpc-resizer/server
+RUN go install github.com/marsredskies/go-grpc-resizer/server@latest
 
 ENTRYPOINT ["/go/bin/server"]
 
