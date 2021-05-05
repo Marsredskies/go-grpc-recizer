@@ -1,2 +1,1 @@
-# go-grpc-resizer
-
+# demo version, working functional on later commits
