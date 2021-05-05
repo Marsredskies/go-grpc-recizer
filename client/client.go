@@ -1,13 +1,12 @@
-package client
+package main
 
 import (
+	"bufio"
 	"context"
 	"fmt"
-	"os"
-
-	pb "github.com/marsredskies/go-grpc-resizer/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/grpclog"
+	"os"
 )
 
 func main() {
@@ -15,8 +14,9 @@ func main() {
 	options := []grpc.DialOption{
 		grpc.WithInsecure(),
 	}
-	// message field number
-	arg := os.Args
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("ur name, pussy:")
+	msg, _ := reader.ReadString('\n')
 	// connection tartget
 	connection, err := grpc.Dial("127.0.0.1:5300", options...)
 
@@ -26,10 +26,10 @@ func main() {
 
 	defer connection.Close()
 	// initialising client connection
-	client := pb.NewGreetingClient(connection)
+	client := greeting.NewGreetingClient(connection)
 	// request to server
-	request := &pb.Request{
-		Message: arg[1],
+	request := &greeting.Request{
+		Message: msg,
 	}
 	//
 	response, err := client.Do(context.Background(), request)
