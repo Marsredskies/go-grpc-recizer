@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package resizer;
+
+option go_package = "/;proto";
+
+
+service Resizer {
+    rpc Resize(ImageUploadRequest) returns (ImageReturn) {}
+}
+
+message ImageUploadRequest {
+    oneof data{
+        ImageInfo image = 1;
+        bytes chunk_data = 2;
+    }
+}
+message ImageInfo {
+   string image_type = 1;
+}
+
+message ImageReturn {
+    string name = 1;
+    uint32 size = 2;
+}
